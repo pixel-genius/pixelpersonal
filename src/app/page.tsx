@@ -170,7 +170,7 @@ export default function Home() {
     "/shot/8.jpg",
     "/shot/9.jpg",
     "/shot/10.jpg",
-    "/shot/11.jpg",
+    "/shot/12.gif",
 
   ];
 
