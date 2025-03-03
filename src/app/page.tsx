@@ -11,17 +11,20 @@ import {
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
-import { ParallaxScroll } from "@/components/ui/parallax-scroll";
+
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import BookSlider from "@/components/book-slider";
+import { AnimatedTooltip } from "@/components/animated-tooltip";
+import { ParallaxScroll } from "@/components/parallax-scroll";
+import { CardStack } from "@/components/card-stack";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const experiences = [
@@ -47,6 +50,16 @@ export default function Home() {
     },
     { title: "FrontEnd, UIUX designer", company: "Batis Gasht", year: "2018" },
   ];
+
+
+
+  const tags = [
+    "Jira", "Survey Research", "Sketching", "UX Research", "Agile", "Design Thinking",
+    "Leadership", "Frontend", "3D Modeling", "Time Management", "Illustration", "Rive",
+    "Animation", "Scrum", "Iconography", "Svg Animation", "Problem Solving",
+    "A/B Test", "PhotoShop", "Design System", "User Experience Writing", "Adaptability", "svgator",
+    "Gamification", "Usability Test", "Teamwork", "Prototyping"
+  ];
   const icons = [
     { icon: IconBrandLinkedin, link: "#" },
     { icon: IconBrandInstagram, link: "#" },
@@ -61,6 +74,49 @@ export default function Home() {
     { name: "Illustrator", img: "/illustrator.svg" },
     { name: "Spline", img: "/spline.svg" },
     { name: "Figma", img: "/figma.svg" },
+  ];
+
+
+
+  const CARDS = [
+    {
+      id: 0,
+      name: "Manu Arora",
+      designation: "Senior Software Engineer",
+      content: (
+        <p>
+          These cards are amazing, I want to use them in my
+          project. Framer motion is a godsend ngl tbh fam 🙏
+        </p>
+      ),
+    },
+    {
+      id: 1,
+      name: "Elon Musk",
+      designation: "Senior Shitposter",
+      content: (
+        <p>
+          I dont like this Twitter thing,{" "}
+          deleting it right away because yolo. Instead, I
+          would like to call it X.com so that it can easily
+          be confused with adult sites.
+        </p>
+      ),
+    },
+    {
+      id: 2,
+      name: "Tyler Durden",
+      designation: "Manager Project Mayhem",
+      content: (
+        <p>
+          The first rule of
+         Fight Clubis that you do not talk about fight
+          club. The second rule of
+          Fight club is that you DO NOT TALK about fight
+          club.
+        </p>
+      ),
+    },
   ];
 
   const people = [
@@ -118,6 +174,7 @@ export default function Home() {
 
   ];
 
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const animation = { duration: 19000, easing: (t: number) => t };
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
@@ -208,10 +265,10 @@ export default function Home() {
               <div className="relative border-l border-gray-600 pl-6 ">
                 {experiences.map((exp, index) => (
                   <div key={index} className="mb-2 flex items-start relative">
-                    <div className=" bg-gray-500 rounded-full"></div>
+                    <div className="absolute -left-[30px] top-1/2 transform -translate-y-1/2 w-3 h-3 bg-gray-500 rounded-full"></div>
                     <div>
                       <h3 className="font-semibold text-white">{exp.title}</h3>
-                      <p className="text-gray-400 text-sm">
+                      <p className="text-gray-400 ">
                         {exp.company}{" "}
                         <span className="text-gray-500">{exp.year}</span>
                       </p>
@@ -246,6 +303,56 @@ export default function Home() {
               <div><ParallaxScroll images={images} /></div>
             </div>
           </div>
+
+
+
+          <div className="flex flex-row items-stretch justify-center gap-2 pt-2">
+            <div className="bg-card p-5 h-[300px] overflow-hidden w-1/2  rounded-xl">
+              <Badge className="mb-8" variant="secondary">
+              What They Say
+              </Badge>
+
+              <div className="flex items-center justify-center ">
+      <CardStack items={CARDS} />
+    </div>
+
+             
+            </div>
+            <div className="bg-card p-5 w-full rounded-xl">
+              <Badge className="mb-4" variant="secondary">
+                Skills
+              </Badge>
+              <div>
+              <div className="flex flex-wrap gap-2">
+        {tags.map((tag, index) => (
+          <motion.div
+            key={index}
+            className="px-3 py-1 bg-gray-800 text-white text-[10px] rounded-lg cursor-pointer relative"
+            initial={{ scale: 1 }}
+            animate={{
+              scale: hoveredIndex === index ? 1.2 : 1,
+              zIndex: hoveredIndex === index ? 10 : 1,
+            }}
+            transition={{ type: "spring", stiffness: 300 }}
+            // onMouseEnter={() => setHoveredIndex(index)}
+            // onMouseLeave={() => setHoveredIndex(null)}
+          >
+            #{tag}
+          </motion.div>
+        ))}
+      </div>
+                
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
         </div>
         <div className="w-3/12">
           <div className="grid grid-cols-3 gap-4  pb-2">

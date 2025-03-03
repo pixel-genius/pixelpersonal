@@ -39,7 +39,7 @@ const BookSlider: React.FC = () => {
       <Swiper
         spaceBetween={20}
         slidesPerView={1}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 10000, disableOnInteraction: false }}
         loop
         modules={[Autoplay]}
         className="w-full"
@@ -49,13 +49,13 @@ const BookSlider: React.FC = () => {
             <div className="text-white">
               <h3 className="text-lg font-bold">{book.title}</h3>
               <p className="text-sm text-gray-400">By {book.author}</p>
-              <div className="mt-3">
+              <div className="mt-3 mx-auto">
                 <Image
                   src={book.cover}
                   alt={book.title}
                   width={200}
                   height={300}
-                  className="rounded-lg shadow-lg"
+                  className="rounded-lg ju  mx-auto  text-center"
                 />
               </div>
             </div>
