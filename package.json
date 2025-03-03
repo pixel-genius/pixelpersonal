@@ -10,13 +10,17 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
+    "@tabler/icons": "^3.30.0",
+    "@tabler/icons-react": "^3.30.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "keen-slider": "^6.8.6",
     "lucide-react": "^0.477.0",
     "motion": "^12.4.7",
     "next": "15.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "swiper": "^11.2.4",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -26,9 +30,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
-    "tailwindcss": "^4",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.9",
     "typescript": "^5"
   }
 }

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap');
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
@@ -46,15 +47,15 @@
 }
 
 .dark {
-  --background: oklch(0.13 0.028 261.692);
+  --background: oklch(14.08% 0.0044 285.82);
   --foreground: oklch(0.985 0.002 247.839);
-  --card: oklch(0.13 0.028 261.692);
+  --card: oklch(21.03% 0.0059 285.89);
   --card-foreground: oklch(0.985 0.002 247.839);
   --popover: oklch(0.13 0.028 261.692);
   --popover-foreground: oklch(0.985 0.002 247.839);
   --primary: oklch(0.985 0.002 247.839);
   --primary-foreground: oklch(0.21 0.034 264.665);
-  --secondary: oklch(0.278 0.033 256.848);
+  --secondary: oklch(27.39% 0.0055 286.03);
   --secondary-foreground: oklch(0.985 0.002 247.839);
   --muted: oklch(0.278 0.033 256.848);
   --muted-foreground: oklch(0.707 0.022 261.325);
@@ -119,11 +120,20 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    font-family: "Wix Madefor Text", sans-serif !important;
+
+    body{
+      background-color: var(--background);
+    }
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+
 }
+
+
+
