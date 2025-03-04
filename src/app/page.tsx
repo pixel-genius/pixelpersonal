@@ -210,10 +210,6 @@ export default function Home() {
     },
   });
 
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
-
   return (
     <div className="container mx-auto pt-10">
       <div className="flex gap-2 flex-row items-start justify-center">

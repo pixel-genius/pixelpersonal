@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { FloatingDock } from "@/components/floating-dock";
 import {
   IconBrandGithub,
@@ -10,7 +9,7 @@ import {
   IconNewSection,
   IconTerminal2,
 } from "@tabler/icons-react";
-import Image from "next/image";
+import DarkModeToggle from "../DarkModeToggle";
 
 export function Menu() {
   const links = [
@@ -21,7 +20,6 @@ export function Menu() {
       ),
       href: "#",
     },
-
     {
       title: "Products",
       icon: (
@@ -36,7 +34,6 @@ export function Menu() {
       ),
       href: "#",
     },
-    
     {
       title: "Changelog",
       icon: (
@@ -44,7 +41,6 @@ export function Menu() {
       ),
       href: "#",
     },
-
     {
       title: "Twitter",
       icon: (
@@ -60,11 +56,19 @@ export function Menu() {
       href: "#",
     },
   ];
+
   return (
-    <div className="flex items-center justify-center fixed bottom-2 w-full z-50" >
+    <div className="flex items-center justify-center fixed bottom-2 w-full z-50">
       <FloatingDock
         mobileClassName="translate-y-20" // only for demo, remove for production
-        items={links}
+        items={[
+          ...links,
+          {
+            title: "Toggle Theme",
+            icon: <DarkModeToggle />, // Use the DarkModeToggle component here
+            href: "#", // Optionally provide a no-op or "#" for href
+          },
+        ]}
       />
     </div>
   );
