@@ -23,68 +23,70 @@ export default function Home() {
     document.documentElement.classList.add("dark");
   }, []);
   return (
-    <div className="container mx-auto pt-10">
-      <div className="flex gap-2  flex-row items-start ">
-        <div className="">
-          <div className="flex flex-row items-stretch justify-center gap-2">
+    <div className="container mx-auto pt-10 px-4">
+      <div className="flex flex-wrap gap-4 items-start">
+        {/* Left Column */}
+        <div className="flex flex-col w-full  gap-4">
+          {/* About Me and Experience */}
+          <div className="flex flex-col md:flex-row gap-2 bg-red-600">
             <AboutMe />
             <Experience />
           </div>
-          <div className="flex flex-row items-stretch justify-center gap-2 pt-2">
-            <div className="bg-card p-5 w-4/12 rounded-xl">
+
+          {/* What I'm Reading & My Works */}
+          <div className="flex flex-wrap md:flex-nowrap gap-2 pt-2 bg-amber-700">
+            {/* What I'm Reading */}
+            <div className="bg-card p-5 w-full md:w-1/3 rounded-xl">
               <Badge className="mb-4" variant="secondary">
-                What i’m reading
+                What I’m Reading
               </Badge>
               <BookSlider />
             </div>
-            {/* End of What i’m reading */}
             {/* My Works */}
-            <div className="bg-card p-5 h-[300px] overflow-hidden  rounded-xl">
-              <div className="flex flex-row justify-between  align-middle ">
-                <div>
-                  <Badge className="mb-4" variant="secondary">
-                    My Works
-                  </Badge>
-                </div>
-                <div>
-                  <Button className="text-sm" variant="link" size="sm">
-                    Show More
-                  </Button>
-                </div>
+            <div className="bg-card p-5 w-full md:w-2/3 h-[300px] overflow-hidden rounded-xl">
+              <div className="flex justify-between items-center">
+                <Badge className="mb-4" variant="secondary">
+                  My Works
+                </Badge>
+                <Button className="text-sm" variant="link" size="sm">
+                  Show More
+                </Button>
               </div>
-              <div>
-                <ParallaxScroll images={images} />
-              </div>
+              <ParallaxScroll images={images} />
             </div>
-            {/* End of My Works */}
           </div>
-          <div className="flex flex-row items-stretch justify-center gap-2 pt-2">
-            {/*  What They Say */}
-            <div className="bg-card p-5 h-[300px] overflow-hidden w-1/2  rounded-xl">
+
+          {/* What They Say & Skills */}
+          <div className="flex  gap-2 pt-2 bg-pink-400 ">
+            {/* What They Say */}
+            <div className="bg-card p-5 h-[300px] w-full md:w-1/2 overflow-hidden rounded-xl">
               <Badge className="mb-8" variant="secondary">
                 What They Say
               </Badge>
-              <div className="flex items-center justify-center ">
+              <div className="flex items-center justify-center">
                 <CardStack items={CARDS} />
               </div>
             </div>
-            {/* End  of  What They Say */}
-            <Skills />
+            {/* Skills */}
+            <div className="w-full md:w-1/2">
+              <Skills />
+            </div>
           </div>
         </div>
-        <div className="w-3/12">
+
+        {/* Right Column */}
+        <div className="w-full lg:w-4/12 bg-sky-300  gap-4">
           <SocialIconsGrid />
           <LocationCard />
           <Stack />
-          <div className="bg-card rounded-2xl p-4  relative ">
+          <div className="bg-card rounded-2xl p-4">
             <Badge className="mb-4" variant="secondary">
-              My team
+              My Team
             </Badge>
-            <div className="flex flex-row h-[8rem] items-center  justify-center mb-10 w-full">
+            <div className="flex h-[8rem] items-center justify-center">
               <AnimatedTooltip items={people} />
             </div>
           </div>
-          {/* My team */}
         </div>
       </div>
     </div>
