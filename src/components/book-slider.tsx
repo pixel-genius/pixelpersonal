@@ -46,9 +46,9 @@ const BookSlider: React.FC = () => {
       >
         {books.map((book) => (
           <SwiperSlide key={book.id}>
-            <div className="text-white">
+            <div className="text-foreground">
               <h3 className="text-lg font-bold">{book.title}</h3>
-              <p className="text-sm text-gray-400">By {book.author}</p>
+              <p className="text-sm text-muted-foreground">By {book.author}</p>
               <div className="mt-3 mx-auto">
                 <Image
                   src={book.cover}

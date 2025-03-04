@@ -10,7 +10,7 @@ const Skills = () => {
           {tags.map((tag, index) => (
             <div
               key={index}
-              className="px-3 py-1 bg-gray-800 text-white text-[10px] rounded-lg cursor-pointer relative"
+              className="px-3 py-1 bg-background hover:bg-primary hover:text-primary-foreground text-foreground text-[10px] rounded-lg cursor-pointer relative"
             >
               #{tag}
             </div>

@@ -2,6 +2,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { Badge } from "@/components/ui/badge";
 import { tools } from "@/data/globalData";
+import { CardContainer } from "./3d-card";
 
 const animation = { duration: 19000, easing: (t: number) => t };
 
@@ -11,8 +12,8 @@ const Stacks = () => {
     renderMode: "performance",
     drag: false,
     breakpoints: {
-      "(min-width: 400px)": {
-        slides: { perView: 2, spacing: 5 },
+      "(min-width: 320px)": {
+        slides: { perView: 3, spacing: 10 },
       },
       "(min-width: 1000px)": {
         slides: { perView: 3, spacing: 10 },
@@ -31,7 +32,8 @@ const Stacks = () => {
   });
 
   return (
-    <div className="bg-card rounded-2xl p-4 mb-2 relative overflow-hidden">
+     <CardContainer>
+      <div className="bg-card rounded-2xl p-4 mb-2 relative overflow-hidden">
       <Badge className="mb-4" variant="secondary">
         Stack I Used
       </Badge>
@@ -39,14 +41,18 @@ const Stacks = () => {
         {tools.map((tool, index) => (
           <div
             key={index}
-            className="keen-slider__slide bg-neutral-800 rounded-xl p-4 w-24 flex flex-col items-center gap-2"
+            className="keen-slider__slide bg-background rounded-xl p-4 w-24 flex flex-col items-center gap-2"
           >
             <img src={tool.img} alt={tool.name} className="w-12 h-12" />
-            <p className="text-neutral-400 text-sm">{tool.name}</p>
+            <p className="text-foreground text-sm">{tool.name}</p>
           </div>
         ))}
       </div>
     </div>
+    
+
+     </CardContainer>
+    
   );
 };
 

@@ -2,7 +2,6 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useEffect } from "react";
 
 import { AnimatedTooltip } from "@/components/animated-tooltip";
 import BookSlider from "@/components/book-slider";
@@ -19,47 +18,28 @@ import SocialIconsGrid from "@/components/SocialIconsGrid";
 import Stack from "@/components/stacks";
 
 export default function Home() {
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
   return (
-    <div className="container mx-auto pt-10 px-4">
-      <div className="flex flex-wrap gap-4 items-start">
-        {/* Left Column */}
-        <div className="flex flex-col w-full  gap-4">
-          {/* About Me and Experience */}
-          <div className="flex flex-col md:flex-row gap-2 bg-red-600">
-            <AboutMe />
-            <Experience />
-          </div>
-
-          {/* What I'm Reading & My Works */}
-          <div className="flex flex-wrap md:flex-nowrap gap-2 pt-2 bg-amber-700">
-            {/* What I'm Reading */}
-            <div className="bg-card p-5 w-full md:w-1/3 rounded-xl">
-              <Badge className="mb-4" variant="secondary">
-                What I’m Reading
-              </Badge>
-              <BookSlider />
+    <main className="container mx-auto pt-10 px-4">
+      <div className="flex flex-col md:flex-row md:gap-2">
+        {/* Left Section*/}
+        <section className="w-full md:w-3/4 flex flex-col ">
+          {/* About Me و Experience */}
+          <div className="flex flex-col md:flex-row gap-2 items-stretch h-full">
+            {/* AboutMe - Left */}
+            <div className="w-full md:w-2/3 h-full">
+              <AboutMe />
             </div>
-            {/* My Works */}
-            <div className="bg-card p-5 w-full md:w-2/3 h-[300px] overflow-hidden rounded-xl">
-              <div className="flex justify-between items-center">
-                <Badge className="mb-4" variant="secondary">
-                  My Works
-                </Badge>
-                <Button className="text-sm" variant="link" size="sm">
-                  Show More
-                </Button>
-              </div>
-              <ParallaxScroll images={images} />
+
+            {/* Experience - Right */}
+            <div className="w-full md:w-1/3 h-full">
+              <Experience />
             </div>
           </div>
 
-          {/* What They Say & Skills */}
-          <div className="flex  gap-2 pt-2 bg-pink-400 ">
-            {/* What They Say */}
-            <div className="bg-card p-5 h-[300px] w-full md:w-1/2 overflow-hidden rounded-xl">
+          {/* What They Say & My Works */}
+          <div className="flex flex-col md:flex-row gap-2 pt-2">
+            {/* What They Say - Left */}
+            <div className="bg-card p-5 h-[300px] w-full md:w-1/3 overflow-hidden rounded-xl">
               <Badge className="mb-8" variant="secondary">
                 What They Say
               </Badge>
@@ -67,15 +47,40 @@ export default function Home() {
                 <CardStack items={CARDS} />
               </div>
             </div>
+
+            {/* My Works - Right */}
+            <div className="bg-card p-5 w-full md:w-2/3 h-[300px] overflow-hidden rounded-xl">
+              <div className="flex justify-between items-center my-auto pb-2">
+                <Badge variant="secondary">My Works</Badge>
+                <Button className="text-sm" variant="link" size="sm">
+                  Show More
+                </Button>
+              </div>
+
+              <ParallaxScroll images={images} />
+            </div>
+          </div>
+
+          {/* What I’m Reading & Skills */}
+          <div className="flex flex-col md:flex-row gap-2 pt-2">
+            {/* What I’m Reading */}
+            <div className="bg-card p-5 w-full md:w-1/4 rounded-xl flex flex-col">
+              <Badge className="mb-4" variant="secondary">
+                What I’m Reading
+              </Badge>
+
+              <BookSlider />
+            </div>
+
             {/* Skills */}
-            <div className="w-full md:w-1/2">
+            <div className="w-full md:w-3/4 flex flex-col bg-card  rounded-xl">
               <Skills />
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Right Column */}
-        <div className="w-full lg:w-4/12 bg-sky-300  gap-4">
+        {/*Right Section*/}
+        <aside className="w-full md:w-1/4 flex flex-col">
           <SocialIconsGrid />
           <LocationCard />
           <Stack />
@@ -87,8 +92,8 @@ export default function Home() {
               <AnimatedTooltip items={people} />
             </div>
           </div>
-        </div>
+        </aside>
       </div>
-    </div>
+    </main>
   );
 }

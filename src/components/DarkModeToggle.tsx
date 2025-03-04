@@ -26,9 +26,9 @@ const DarkModeToggle: React.FC = () => {
       className="flex items-center justify-center p-2 rounded-full   transition-colors"
     >
       {isDarkMode ? (
-        <SunIcon size={24} className="text-white" />
+        <SunIcon size={24} className=" text-neutral-500 dark:text-neutral-300" />
       ) : (
-        <MoonIcon size={24} className="text-white" />
+        <MoonIcon size={24} className=" text-neutral-500 dark:text-neutral-300" />
       )}
     </button>
   );
