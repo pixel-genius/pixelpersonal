@@ -63,11 +63,6 @@ export function Menu() {
         mobileClassName="translate-y-20" // only for demo, remove for production
         items={[
           ...links,
-          {
-            title: "Toggle Theme",
-            icon: <DarkModeToggle />, // Use the DarkModeToggle component here
-            href: "#", // Optionally provide a no-op or "#" for href
-          },
         ]}
       />
     </div>

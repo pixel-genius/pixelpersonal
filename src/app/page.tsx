@@ -16,26 +16,25 @@ import LocationCard from "@/components/map";
 import Skills from "@/components/Skills";
 import SocialIconsGrid from "@/components/SocialIconsGrid";
 import Stack from "@/components/stacks";
+import DarkModeToggle from "@/components/DarkModeToggle";
 
 export default function Home() {
   return (
-    <main className="container mx-auto pt-10 px-4">
+    <main className="container mx-auto  py-12 px-4">
       <div className="flex flex-col md:flex-row md:gap-2">
         {/* Left Section*/}
-        <section className="w-full md:w-3/4 flex flex-col ">
+        <section className="w-full  md:w-3/4 flex flex-col ">
           {/* About Me و Experience */}
-          <div className="flex flex-col md:flex-row gap-2 items-stretch h-full">
+          <div className="flex flex-col md:flex-row gap-2">
             {/* AboutMe - Left */}
-            <div className="w-full md:w-2/3 h-full">
+            <div className="w-full md:w-2/3 ">
               <AboutMe />
             </div>
-
             {/* Experience - Right */}
-            <div className="w-full md:w-1/3 h-full">
+            <div className="w-full md:w-1/3">
               <Experience />
             </div>
           </div>
-
           {/* What They Say & My Works */}
           <div className="flex flex-col md:flex-row gap-2 pt-2">
             {/* What They Say - Left */}
@@ -47,7 +46,6 @@ export default function Home() {
                 <CardStack items={CARDS} />
               </div>
             </div>
-
             {/* My Works - Right */}
             <div className="bg-card p-5 w-full md:w-2/3 h-[300px] overflow-hidden rounded-xl">
               <div className="flex justify-between items-center my-auto pb-2">
@@ -60,7 +58,6 @@ export default function Home() {
               <ParallaxScroll images={images} />
             </div>
           </div>
-
           {/* What I’m Reading & Skills */}
           <div className="flex flex-col md:flex-row gap-2 pt-2">
             {/* What I’m Reading */}
@@ -78,9 +75,13 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         {/*Right Section*/}
         <aside className="w-full md:w-1/4 flex flex-col">
+          <div className="bg-card rounded-2xl mb-2 p-4">
+            <div className="flex h-[4rem] items-center justify-center">
+              <DarkModeToggle />
+            </div>
+          </div>
           <SocialIconsGrid />
           <LocationCard />
           <Stack />
@@ -88,7 +89,7 @@ export default function Home() {
             <Badge className="mb-4" variant="secondary">
               My Team
             </Badge>
-            <div className="flex h-[8rem] items-center justify-center">
+            <div className="flex h-[4rem] items-center justify-center">
               <AnimatedTooltip items={people} />
             </div>
           </div>

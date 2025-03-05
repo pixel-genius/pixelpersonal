@@ -8,7 +8,7 @@ import { CardContainer } from "./3d-card";
 const AboutMe: React.FC = () => {
   return (
     <CardContainer className="inter-var">
-        <div className="bg-card p-5 h-full   rounded-xl">
+        <div className="bg-card p-5 rounded-xl">
       <div className="mb-4 flex gap-3">
         <Badge variant="secondary">About Me</Badge>
       </div>
