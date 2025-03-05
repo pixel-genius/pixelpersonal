@@ -17,11 +17,11 @@ FROM base as builder
 WORKDIR /nextl
 COPY . .
 COPY --from=dependencies /nextl/node_modules ./node_modules
-RUN bun run build
+RUN npx next build  # استفاده از npx برای اجرای دستور next build
 
 # مرحله اجرای برنامه
 FROM base as runner
 WORKDIR /nextl
 COPY --from=builder /nextl/ ./
 EXPOSE 3000
-CMD ["bun", "run", "start"]
+CMD ["npx", "next", "start"]  # استفاده از npx برای اجرای سرور
