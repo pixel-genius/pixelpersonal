@@ -28,14 +28,13 @@ const books: Book[] = [
     id: 3,
     title: "Deep Work",
     author: "Cal Newport",
-   cover: "/book.png",
+    cover: "/book.png",
   },
 ];
 
 const BookSlider: React.FC = () => {
   return (
     <div className="w-full max-w-sm  rounded-lg">
-     
       <Swiper
         spaceBetween={20}
         slidesPerView={1}

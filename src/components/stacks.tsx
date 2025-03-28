@@ -1,3 +1,4 @@
+"use client";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { Badge } from "@/components/ui/badge";
@@ -32,27 +33,24 @@ const Stacks = () => {
   });
 
   return (
-     <CardContainer>
+    <CardContainer>
       <div className="bg-card rounded-2xl p-4 mb-2 relative overflow-hidden">
-      <Badge className="mb-4" variant="secondary">
-        Stack I Used
-      </Badge>
-      <div ref={sliderRef} className="keen-slider">
-        {tools.map((tool, index) => (
-          <div
-            key={index}
-            className="keen-slider__slide bg-background rounded-xl p-4 w-24 flex flex-col items-center gap-2"
-          >
-            <img src={tool.img} alt={tool.name} className="w-12 h-12" />
-            <p className="text-foreground text-sm">{tool.name}</p>
-          </div>
-        ))}
+        <Badge className="mb-4" variant="secondary">
+          Stack I Used
+        </Badge>
+        <div ref={sliderRef} className="keen-slider">
+          {tools.map((tool, index) => (
+            <div
+              key={index}
+              className="keen-slider__slide bg-background rounded-xl p-4 w-24 flex flex-col items-center gap-2"
+            >
+              <img src={tool.img} alt={tool.name} className="w-12 h-12" />
+              <p className="text-foreground text-sm">{tool.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-    
-
-     </CardContainer>
-    
+    </CardContainer>
   );
 };
 

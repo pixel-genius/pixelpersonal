@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { MoonIcon, SunIcon } from "lucide-react";
@@ -28,9 +30,9 @@ function Switch({ isOn, onClick }: { isOn: boolean; onClick: () => void }) {
 }
 
 export default function DarkModeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState(() =>
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
+  const [isDarkMode, setIsDarkMode] =
+    useState(true);
+    // () => window.matchMedia("(prefers-color-scheme: dark)").matches
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDarkMode);
