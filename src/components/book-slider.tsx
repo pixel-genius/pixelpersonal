@@ -16,20 +16,15 @@ const books: Book[] = [
     id: 1,
     title: "The Lean Startup",
     author: "Eric Ries",
-    cover: "/book.png", // مسیر تصویر کتاب
+    cover: "/book4.png", // مسیر تصویر کتاب
   },
   {
     id: 2,
-    title: "Atomic Habits",
-    author: "James Clear",
-    cover: "/book.png",
+    title: "The 1-Page Marketing Plan",
+    author: "Allan Dib ",
+    cover: "/book3.png",
   },
-  {
-    id: 3,
-    title: "Deep Work",
-    author: "Cal Newport",
-   cover: "/book.png",
-  },
+
 ];
 
 const BookSlider: React.FC = () => {
@@ -47,13 +42,13 @@ const BookSlider: React.FC = () => {
         {books.map((book) => (
           <SwiperSlide key={book.id}>
             <div className="text-foreground">
-              <h3 className="text-lg font-bold">{book.title}</h3>
+              <h3 className="text-sm font-bold">{book.title}</h3>
               <p className="text-sm text-muted-foreground">By {book.author}</p>
               <div className="mt-3 mx-auto">
                 <Image
                   src={book.cover}
                   alt={book.title}
-                  width={200}
+                  width={100}
                   height={300}
                   className="rounded-lg ju  mx-auto  text-center"
                 />

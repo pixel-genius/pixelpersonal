@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CardContainer } from "./3d-card";
+import CalendlyWidget from "./CalendlyWidget";
 
 const AboutMe: React.FC = () => {
   return (
@@ -41,7 +42,8 @@ const AboutMe: React.FC = () => {
         </div>
       </div>
       <div className="flex md:flex-row flex-col gap-4 w-full mt-10">
-        <Button variant="secondary" size="lg">Book a call</Button>
+        <Button variant="secondary" size="lg"> <CalendlyWidget /></Button>
+
         <p className="text-foreground w-80 text-sm">
           Feel free to explore my portfolio and reach out. I'd love to connect!
         </p>
@@ -54,3 +56,4 @@ const AboutMe: React.FC = () => {
 };
 
 export default AboutMe;
+
