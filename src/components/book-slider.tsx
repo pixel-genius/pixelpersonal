@@ -30,7 +30,6 @@ const books: Book[] = [
 const BookSlider: React.FC = () => {
   return (
     <div className="w-full max-w-sm  rounded-lg">
-     
       <Swiper
         spaceBetween={20}
         slidesPerView={1}

@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import React, {
   createContext,
   useState,
@@ -48,10 +47,7 @@ export const CardContainer = ({
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
-        className={cn(
-          "items-center justify-center",
-          containerClassName
-        )}
+        className={cn("items-center justify-center", containerClassName)}
         style={{
           perspective: "1000px",
         }}
@@ -61,10 +57,7 @@ export const CardContainer = ({
           onMouseEnter={handleMouseEnter}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          className={cn(
-            "  transition-all duration-200 ease-linear",
-            className
-          )}
+          className={cn("  transition-all duration-200 ease-linear", className)}
           style={{
             transformStyle: "preserve-3d",
           }}

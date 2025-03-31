@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { MoonIcon, SunIcon } from "lucide-react";
@@ -32,7 +31,7 @@ export default function DarkModeToggle() {
   const [isDarkMode, setIsDarkMode] = useState(() =>
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
-//todo Set OS theme in LocalStorage
+
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
