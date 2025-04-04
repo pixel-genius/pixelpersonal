@@ -42,7 +42,10 @@ const AboutMe: React.FC = () => {
         </div>
       </div>
       <div className="flex md:flex-row flex-col gap-4 w-full mt-10">
-        <Button variant="secondary" size="lg"> <CalendlyWidget /></Button>
+        <div className="bg-muted rounded-xl p-4 flex hover:bg-primary hover:text-primary-foreground">
+        <CalendlyWidget />
+        </div>
+        
 
         <p className="text-foreground w-80 text-sm">
           Feel free to explore my portfolio and reach out. I'd love to connect!

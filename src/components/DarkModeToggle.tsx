@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { MoonIcon, SunIcon } from "lucide-react";
@@ -28,15 +30,33 @@ function Switch({ isOn, onClick }: { isOn: boolean; onClick: () => void }) {
 }
 
 export default function DarkModeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState(() =>
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDarkMode);
-  }, [isDarkMode]);
+    const savedTheme = localStorage.getItem("theme");
 
-  const toggleMode = () => setIsDarkMode((prev) => !prev);
+    if (savedTheme === "dark") {
+      setIsDarkMode(true);
+      document.documentElement.classList.add("dark");
+    } else if (savedTheme === "light") {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove("dark");
+    } else {
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      setIsDarkMode(prefersDark);
+      document.documentElement.classList.toggle("dark", prefersDark);
+    }
+  }, []);
+
+  const toggleMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem("theme", newMode ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", newMode);
+  };
 
   return (
     <div className="flex items-center gap-2">

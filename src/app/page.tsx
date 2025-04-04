@@ -1,4 +1,3 @@
-"use client";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -18,7 +17,22 @@ import SocialIconsGrid from "@/components/SocialIconsGrid";
 import Stack from "@/components/stacks";
 import DarkModeToggle from "@/components/DarkModeToggle";
 
+
+
+export const metadata = {
+  title: "Ali Ebrahimi Kashef - Product Designer",
+  description: "  Ali Ebrahimi Kashef is a product designer and developer with a passion for creating innovative and user-friendly digital products. He is a self-taught designer who has worked on various projects, including websites, mobile apps, and software development. Ali's expertise lies in the field of user experience design, where he has a proven track record of delivering high-quality products that meet the needs of his clients. He is also an avid learner and constantly seeks new ways to improve his skills and knowledge.",
+  icons: {
+    icon: '/favicon/favicon.ico',
+  },
+};
+
+
 export default function Home() {
+
+
+
+  
   return (
     <main className="container mx-auto  py-12 px-4">
       <div className="flex flex-col md:flex-row md:gap-2">
