@@ -1,13 +1,16 @@
 # syntax=docker.io/docker/dockerfile:1
 
+# Use Node.js 18 based Alpine image
 FROM node:18-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
-RUN apk add --no-cache libc6-compat curl  # اضافه کردن curl
+RUN apk add --no-cache libc6-compat curl bash # Add bash as it's required by the install script
 
 # Install Bun (latest version)
-RUN curl -fsSL https://bun.sh/install | bash
+RUN curl -fsSL https://bun.sh/install | bash && \
+    export BUN_BIN=/root/.bun/bin/bun && \
+    ln -s $BUN_BIN /usr/local/bin/bun # Ensure Bun is available globally
 
 WORKDIR /app
 
@@ -38,6 +41,7 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+# Copy necessary files from builder stage
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
