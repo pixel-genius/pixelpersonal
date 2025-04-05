@@ -3,25 +3,20 @@
 # Use Node.js 18 based Alpine image
 FROM node:18-alpine AS base
 
-# Install dependencies only when needed
-FROM base AS deps
-RUN apk add --no-cache libc6-compat curl bash # Add bash as it's required by the install script
+# Install dependencies
+RUN apk add --no-cache libc6-compat curl bash
 
-# Install Bun (latest version)
+# Install Bun globally
 RUN curl -fsSL https://bun.sh/install | bash && \
-    export BUN_BIN=/root/.bun/bin/bun && \
-    ln -s $BUN_BIN /usr/local/bin/bun && \
-    echo 'export PATH=$PATH:/root/.bun/bin' >> /etc/profile.d/bun.sh
+    ln -s /root/.bun/bin/bun /usr/local/bin/bun
 
-# Ensure Bun is installed correctly
-RUN bun --version # This will verify that Bun is correctly installed
+# Just check bun installed
+RUN bun --version
 
+# Install dependencies
+FROM base AS deps
 WORKDIR /app
-
-# Copy package.json and lockfiles (if any)
 COPY package.json bun.lock* ./
-
-# Install dependencies using Bun
 RUN \
   if [ -f bun.lock ]; then bun install --frozen-lockfile; \
   else echo "Bun lockfile not found." && exit 1; \
@@ -33,13 +28,10 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Verify Bun installation again in the builder stage
-RUN bun --version # Verify Bun is available at build time
-
-# Build the project using Bun
+RUN bun --version
 RUN bun run build
 
-# Production image, copy all the files and run next
+# Production image
 FROM base AS runner
 WORKDIR /app
 
@@ -48,7 +40,6 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy necessary files from builder stage
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
@@ -57,6 +48,6 @@ USER nextjs
 
 EXPOSE 3000
 ENV PORT=3000
-
 ENV HOSTNAME="0.0.0.0"
+
 CMD ["node", "server.js"]
