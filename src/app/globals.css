@@ -130,9 +130,22 @@
 
     body{
       background-color: var(--background);
+     
     }
   }
 
+}
+
+
+
+
+@keyframes pulse-color {
+  0%, 100% {
+    background-color: #e5e7eb; /* طوسی (Tailwind: bg-muted) */
+  }
+  50% {
+    background-color: #3b82f6; /* آبی (Tailwind: blue-500) */
+  }
 }
 
 
