@@ -1,15 +1,12 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-
 import { AnimatedTooltip } from "@/components/animated-tooltip";
 import BookSlider from "@/components/book-slider";
 import { ParallaxScroll } from "@/components/parallax-scroll";
-
 import AboutMe from "@/components/aboutme";
 import Experience from "@/components/my-experiance";
 import { CARDS, images, people } from "@/data/globalData";
-
 import { CardStack } from "@/components/card-stack";
 import LocationCard from "@/components/map";
 import Skills from "@/components/Skills";
@@ -60,7 +57,7 @@ export default function Home() {
                 <CardStack items={CARDS} />
               </div>
             </div>
-            {/* My Works - Right */}
+           
             <div className="bg-card p-5 w-full md:w-2/3 h-[300px] overflow-hidden rounded-xl">
               <div className="flex justify-between items-center my-auto pb-2">
                 <Badge variant="secondary">My Works</Badge>
