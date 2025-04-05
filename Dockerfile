@@ -10,7 +10,11 @@ RUN apk add --no-cache libc6-compat curl bash # Add bash as it's required by the
 # Install Bun (latest version)
 RUN curl -fsSL https://bun.sh/install | bash && \
     export BUN_BIN=/root/.bun/bin/bun && \
-    ln -s $BUN_BIN /usr/local/bin/bun # Ensure Bun is available globally
+    ln -s $BUN_BIN /usr/local/bin/bun && \
+    echo 'export PATH=$PATH:/root/.bun/bin' >> /etc/profile.d/bun.sh
+
+# Ensure Bun is installed correctly
+RUN bun --version # This will verify that Bun is correctly installed
 
 WORKDIR /app
 
@@ -28,6 +32,9 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+# Verify Bun installation again in the builder stage
+RUN bun --version # Verify Bun is available at build time
 
 # Build the project using Bun
 RUN bun run build
