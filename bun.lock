@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "keyvan",
+      "name": "Ali Ebrahimi Kashef",
       "dependencies": {
         "@radix-ui/react-slot": "^1.1.2",
         "@tabler/icons": "^3.30.0",
