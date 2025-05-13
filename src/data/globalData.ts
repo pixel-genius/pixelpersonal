@@ -11,8 +11,13 @@ import {
 export const experiences = [
   {
     title: "Product Designer, Graphic Designer",
+    company: "Yarhis",
+    year: "2025 - Present",
+  },
+  {
+    title: "Product Designer, Graphic Designer",
     company: "ArianaLabs",
-    year: "2023 - Present",
+    year: "2023 ",
   },
   {
     title: "Graphic designer, UIUX designer",
@@ -29,7 +34,7 @@ export const experiences = [
     company: "Artiman Gasht",
     year: "2019",
   },
-  { title: "FrontEnd, UIUX designer", company: "Batis Gasht", year: "2018" },
+ 
 ];
 
 export const images = [

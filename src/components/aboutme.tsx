@@ -35,7 +35,7 @@ const AboutMe: React.FC = () => {
           at
         </p>
         <div className="flex justify-start items-center my-auto flex-row mt-2    gap-2">
-          <p className="text-primary  font-bold md:text-4xl text-2xl ">Arianalabs</p>
+          <p className="text-primary  font-bold md:text-4xl text-2xl ">Yarhis</p>
           <div className="flex mt-1   items-center space-x-2 border border-gray-400 rounded-full px-3 py-1 text-foreground text-sm font-medium">
             <span className="relative flex md:h-3 md:w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
