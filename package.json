@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-tooltip": "^1.2.7",
     "@tabler/icons": "^3.30.0",
     "@tabler/icons-react": "^3.30.0",
     "class-variance-authority": "^0.7.1",
