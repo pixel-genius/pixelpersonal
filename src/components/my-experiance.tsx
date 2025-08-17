@@ -10,7 +10,7 @@ const Experience = () => {
         <Badge className="mb-4" variant="secondary">
           My Experience
         </Badge>
-        <div className="relative border-l pb-2 border-muted pl-6 ">
+        <div className="relative border-l pb-2 border-muted pl-6 max-h-64 overflow-y-auto">
           {experiences.map((exp, index) => (
             <div key={index} className="mb-2 flex items-start relative">
               <div className="absolute -left-[30px] top-1/2 transform -translate-y-1/2 w-3 h-3 bg-muted rounded-full"></div>
@@ -18,12 +18,14 @@ const Experience = () => {
                 <h3 className="font-semibold text-foreground text-sm">
                   {exp.title}
                 </h3>
-                <p className="text-muted-foreground ">
-                  {exp.company}{" "}
-                  <span className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-xs">
                     {exp.year}
-                  </span>
+                  </p>
+                <p className="text-muted-foreground text-xs  font-semibold">
+                  {exp.company}
+                 
                 </p>
+              
               </div>
             </div>
           ))}

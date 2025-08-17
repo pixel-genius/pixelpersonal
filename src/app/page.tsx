@@ -13,7 +13,7 @@ import Skills from "@/components/Skills";
 import SocialIconsGrid from "@/components/SocialIconsGrid";
 import Stack from "@/components/stacks";
 import DarkModeToggle from "@/components/DarkModeToggle";
-
+import Link from "next/link";
 
 
 export const metadata = {
@@ -61,9 +61,11 @@ export default function Home() {
             <div className="bg-card p-5 w-full md:w-2/3 h-[300px] overflow-hidden rounded-xl">
               <div className="flex justify-between items-center my-auto pb-2">
                 <Badge variant="secondary">My Works</Badge>
-                <Button className="text-sm" variant="link" size="sm">
-                  Show More
-                </Button>
+                <Link href="/works">
+                  <Button className="text-sm" variant="link" size="sm">
+                    Show More
+                  </Button>
+                </Link>
               </div>
 
               <ParallaxScroll images={images} />
