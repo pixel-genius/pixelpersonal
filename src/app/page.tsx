@@ -42,7 +42,7 @@ export default function Home() {
               <AboutMe />
             </div>
             {/* Experience - Right */}
-            <div className="w-full md:w-1/3">
+            <div className="w-full h-full md:w-1/3">
               <Experience />
             </div>
           </div>
@@ -100,7 +100,7 @@ export default function Home() {
           <Stack />
           <div className="bg-card rounded-2xl p-4">
             <Badge className="mb-4" variant="secondary">
-              My Team
+            My Friends
             </Badge>
             <div className="flex h-[4rem] items-center justify-center">
               <AnimatedTooltip items={people} />

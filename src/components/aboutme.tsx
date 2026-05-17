@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CardContainer } from "./3d-card";
 import CalendlyWidget from "./CalendlyWidget";
 import { WordRotate } from "./magicui/word-rotate";
+import Link from "next/link";
 
 const AboutMe: React.FC = () => {
   return (
@@ -35,14 +36,23 @@ const AboutMe: React.FC = () => {
           at
         </p>
         <div className="flex justify-start items-center my-auto flex-row mt-2    gap-2">
-          <p className="text-primary  font-bold md:text-4xl text-2xl ">Yarhis</p>
-          <div className="flex mt-1   items-center space-x-2 border border-gray-400 rounded-full px-3 py-1 text-foreground text-sm font-medium">
+          <Link href="https://amnmoj.com" target="_blank" rel="noopener noreferrer" className="flex gap-2 items-center">
+          <Image
+            src="/imageMoj.png"
+            alt="Company Logo"
+            width={50}
+            height={50}
+            className="object-contain rounded-full border-4 border-primary"
+          />
+          <p className="text-primary  font-bold md:text-4xl text-2xl ">AmnMoj</p>
+          {/* <div className="flex mt-1   items-center space-x-2 border border-gray-400 rounded-full px-3 py-1 text-foreground text-sm font-medium">
             <span className="relative flex md:h-3 md:w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
             <span className=" md:text-base text-[10px]">Open To Work</span>
-          </div>
+          </div> */}
+          </Link>
         </div>
       </div>
       <div className="flex md:flex-row flex-col gap-4 w-full mt-10">

@@ -9,11 +9,13 @@ import {
 
 // src/data/globalData.ts
 export const experiences = [
-  {
+
+   {
     title: "Product Designer, Graphic Designer",
-    company: "Yarhis",
-    year: "2025 - Present",
+    company: "Amnmoj",
+    year: "October 2025 - Present",
   },
+ 
   {
     title: "Product Designer, Graphic Designer",
     company: "ArianaLabs",
@@ -169,6 +171,18 @@ export const people = [
     designation: "UI/UX Designer",
     image: "/pg.png",
   },
+  {
+    id: 7,
+    name: "Porya Kazemirad",
+    designation: "Front-end Developer",
+    image: "/porya.png",
+  },
+   {
+    id: 8,
+    name: "Pooya Javar",
+    designation: "Django Developer",
+    image: "/pooya.png",
+  },
 ];
 
 export const works = [
@@ -183,35 +197,35 @@ export const works = [
     id: 2,
     title: "Kia Ads Landing Page",
     image: "/shot/2.jpg",
-    category: "UI/UX",
+    category: "UIUX",
     description: "A tall, narrow stained-glass window from a church, composed of many small, colorful panes depicting various figures.",
   },
   {
     id: 3,
     title: "Banisho",
     image: "/shot/3.jpg",
-    category: "UI/UX",
+    category: "UIUX",
     description: "A close-up of a small, fluffy gray owlet with large, bright orange eyes, being gently held in someone's hands.",
   },
   {
     id: 4,
     title: "Travel Agency",
     image: "/shot/4.jpg",
-    category: "UI/UX",
+    category: "UIUX",
     description: "A flat lay of several white magazines and books featuring design content and publications.",
   },
   {
     id: 5,
     title: "DaroResa",
     image: "/shot/5.jpg",
-    category: "UI/UX",
+    category: "UIUX",
     description: "A black backpack with a bright yellow square accent, resting on a light-colored wooden stool.",
   },
   {
     id: 6,
     title: "Point - Prsonal Finance",
     image: "/shot/6.jpg",
-    category: "UI/UX",
+    category: "UIUX",
     description: "A modern living room featuring a large flat-screen TV, light-colored sofa, and coffee table with flowers.",
   },
   {
@@ -232,7 +246,7 @@ export const works = [
     id: 9,
     title: "Mihan Insurance",
     image: "/shot/9.jpg",
-    category: "UI/UX",
+    category: "UIUX",
     description: "A scenic landscape with a calm lake, two wooden rowboats, and rugged mountains under a cloudy sky.",
   },
 ];
