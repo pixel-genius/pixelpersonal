@@ -1,15 +1,7 @@
 # -------------------------
 # مرحله پایه
 # -------------------------
-FROM node:18-alpine AS base
-
-# نصب ابزارهای لازم
-RUN apk add --no-cache libc6-compat curl bash
-
-# نصب bun
-RUN curl -fsSL https://bun.sh/install | bash && \
-    ln -s /root/.bun/bin/bun /usr/local/bin/bun
-
+FROM oven/bun:1 AS base
 WORKDIR /app
 
 # -------------------------
@@ -34,10 +26,7 @@ RUN bun run build
 FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-
-# کپی خروجی بیلد
 COPY --from=builder /app ./
 
 EXPOSE 3000
-
 CMD ["bun", "run", "start"]
