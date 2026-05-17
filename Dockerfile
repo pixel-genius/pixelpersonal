@@ -1,14 +1,7 @@
 # -------------------------
 # مرحله پایه
 # -------------------------
-FROM node:18-slim AS base
-
-RUN apt-get update && apt-get install -y curl bash && rm -rf /var/lib/apt/lists/*
-
-# نصب bun
-RUN curl -fsSL https://bun.sh/install | bash && \
-    ln -s /root/.bun/bin/bun /usr/local/bin/bun
-
+FROM oven/bun:1 AS base
 WORKDIR /app
 
 # -------------------------
