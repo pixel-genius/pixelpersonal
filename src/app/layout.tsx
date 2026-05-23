@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import CustomCursor from "@/components/ui/CustomCursor";
 import { Menu } from "@/components/ui/menu";
 import DarkModeToggle from "@/components/DarkModeToggle";
@@ -30,9 +31,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground`}
       >
-        
         <CustomCursor />
         {children}
+        <Script
+          src="https://chat.pixelgenius.ir/embed.js"
+          strategy="afterInteractive"
+          data-mode="floating"
+          data-api-url="https://chat.pixelgenius.ir"
+          data-login-url="https://chat.pixelgenius.ir/login"
+          data-primary-color="#1B6BED"
+          data-position="bottom-right"
+          data-title="مشاوره با هوش مصنوعی نابغه پیکسل"
+          data-subtitle="من همیشه آنلاین هستم تا توی پروژه‌ات کمکت کنم"
+        />
+
         <Menu />
       </body>
     </html>
