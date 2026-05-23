@@ -1,15 +1,18 @@
+ARG BUN_IMAGE=docker.arvancloud.ir/oven/bun:1
+
 # -------------------------
 # مرحله پایه
 # -------------------------
-FROM oven/bun:1 AS base
+FROM ${BUN_IMAGE} AS base
 WORKDIR /app
 
 # -------------------------
 # نصب dependencies
 # -------------------------
 FROM base AS deps
-COPY package.json bun.lockb* ./
-RUN bun install --frozen-lockfile
+ARG NPM_REGISTRY=https://registry.npmmirror.com
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile --registry ${NPM_REGISTRY}
 
 # -------------------------
 # مرحله بیلد
@@ -26,6 +29,8 @@ RUN bun run build
 FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
+ENV HOSTNAME=0.0.0.0
+ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=builder /app ./
 
 EXPOSE 3000
